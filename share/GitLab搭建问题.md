@@ -1,6 +1,6 @@
-* ÓÊ¼þ²»ÄÜÊÕµ½
+* é‚®ä»¶ä¸èƒ½æ”¶åˆ°
 
-    $ sudo gitlab-rails console
-    > Notify.test_email('ÊÕ¼þÈËÓÊÏäµØÖ·', 'ÓÊ¼þ±êÌâ', 'ÓÊ¼þÕýÎÄ').deliver_now
+        $ sudo gitlab-rails console
+        > Notify.test_email('æ”¶ä»¶äººé‚®ç®±åœ°å€', 'é‚®ä»¶æ ‡é¢˜', 'é‚®ä»¶æ­£æ–‡').deliver_now
 
-¸ù¾ÝÌáÊ¾½â¾ö²»ÄÜÊÕÓÊ¼þÎÊÌâ¡£
+æ ¹æ®æç¤ºè§£å†³ä¸èƒ½æ”¶é‚®ä»¶é—®é¢˜ã€‚

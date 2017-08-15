@@ -1,8 +1,8 @@
 # Java代码混淆
 
-在pom.xml添加以下插件，自定义部分改成你自己的代码过滤。其它部分按需修改，满足需要。
+在pom.xml添加插件[proguard-maven-plugin](https://github.com/wvengen/proguard-maven-plugin)，自定义部分改成你自己的代码过滤。其它部分按需修改，满足需要。
 
-``` xml ```
+``` xml
 <plugin>
 	<groupId>com.github.wvengen</groupId>
 	<artifactId>proguard-maven-plugin</artifactId>
@@ -26,13 +26,13 @@
 			<!-- java.** -->
 			<option>-dontwarn java.**</option>
 			<option>-keep class java.** { *;}</option>
-            <!-- com.sun.** -->
+			<!-- com.sun.** -->
 			<option>-dontwarn com.sun.**</option>
 			<option>-keep class com.sun.** { *;}</option>
 			<!-- javax.** -->
 			<option>-dontwarn javax.**</option>
 			<option>-keep class javax.** { *;}</option>
-            <!-- org.bouncycastle.** -->
+			<!-- org.bouncycastle.** -->
 			<option>-dontwarn org.bouncycastle.**</option>
 			<option>-keep class org.bouncycastle.** { *;}</option>
 			<!-- 自定义的 -->
@@ -45,4 +45,4 @@
 		</libs>
 	</configuration>
 </plugin>
-``` xml
+```

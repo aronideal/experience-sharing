@@ -2,4 +2,4 @@
 经验分享
 
 # License
-The MIT License is here '[LICENSE](./LICENSE)'.
+The MIT License is here [LICENSE](./LICENSE).

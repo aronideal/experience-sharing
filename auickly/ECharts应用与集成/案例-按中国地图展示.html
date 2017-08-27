@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<meta name="Content-Type" content="text/html;charset=utf-8">
+<!-- 引入 ECharts 文件 -->
+<script src="echarts.min.js"></script>
+<script src="china.js"></script>
+</head>
+<body>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="main" style="width: 600px; height: 400px;"></div>
+	<script type="text/javascript">
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('main'));
+
+		// -- TODO: 通过ajax获得的data（JSON形式） -----------------------------------------------------------------------------------------------------------------------------
+		var data = {
+			"names" : [ '交易量' ],
+			"points" : [ {
+				"name" : "交易量",
+				"value" : [ {
+					"name" : "河北",
+					"value" : 666
+				}, {
+					"name" : "广西",
+					"value" : 3
+				}, {
+					"name" : "四川",
+					"value" : 2500
+				} ]
+			} ]
+		};
+		// ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+		var series = [];
+		for ( var index in data.points) {
+			series.push({
+				name : data.points[index].name,
+				type : 'map',
+				mapType : 'china',
+				label : {
+					normal : {
+						show : true
+					},
+					emphasis : {
+						show : true
+					}
+				},
+				data : data.points[index].value
+			});
+		}
+
+		var option = {
+			title : {
+				text : '按中国地图展示',
+				x : 'center'
+			},
+			tooltip : {
+				trigger : 'item'
+			},
+			legend : {
+				orient : 'vertical',
+				left : 'left',
+				data : data.names
+			},
+			visualMap : {
+				min : 0,
+				max : 2500,
+				left : 'left',
+				top : 'bottom',
+				text : [ '高', '低' ], // 文本，默认为数值文本
+				calculable : true
+			},
+			/*
+			toolbox: {
+			    show: true,
+			    orient: 'vertical',
+			    left: 'right',
+			    top: 'center',
+			    feature: {
+			        dataView: {readOnly: false},
+			        restore: {},
+			        saveAsImage: {}
+			    }
+			},
+			 */
+			series : series
+		};
+
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

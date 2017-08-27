@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="Content-Type" content="text/html;charset=utf-8">
+<meta charset="utf-8">
+<!-- 引入 ECharts 文件 -->
+<script src="echarts.min.js"></script>
+</head>
+<body>
+	<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+	<div id="main" style="width: 600px; height: 400px;"></div>
+	<script type="text/javascript">
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('main'));
+
+		// -- TODO: 通过ajax获得的data（JSON形式） -----------------------------------------------------------------------------------------------------------------------------
+		var data = {
+			"xnames" : [ '1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月',
+					'10月', '11月', '12月' ],
+			"lines" : [
+					{
+						"name" : "查码量",
+						"value" : [ 120, 0, 101, 134, 90, 230, 210, 0, 66, 77,
+								12, 199 ]
+					} ]
+		};
+		// ----------------------------------------------------------------------------------------------------------------------------------------------------
+		
+		var series = [];
+		for ( var index in data.lines) {
+			series.push({
+				name : data.lines[index].name,
+				type : 'line',
+				stack : '总量',
+				data : data.lines[index].value
+			});
+		}
+
+		// 指定图表的配置项和数据
+		var option = {
+			title : {
+				text : '按折线图展示',
+				x : 'center'
+			},
+			tooltip : {
+				trigger : 'axis'
+			},
+			grid : {
+				left : '3%',
+				right : '4%',
+				bottom : '3%',
+				containLabel : true
+			},
+			/*
+			toolbox: {
+			feature: {
+			saveAsImage: {}
+			}
+			},*/
+			xAxis : {
+				type : 'category',
+				boundaryGap : false,
+				data : data.xnames
+			},
+			yAxis : {
+				type : 'value'
+			},
+			series : series
+		};
+
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

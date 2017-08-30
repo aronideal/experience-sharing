@@ -93,7 +93,7 @@
     <configuration>
         <!-- Manifest文件是否使用与dist版本一致 -->
         <useDefaultManifestFile>true</useDefaultManifestFile>
-        <encoding>UTF-8</encoding>
+        <encoding>${project.build.sourceEncoding}</encoding>
     </configuration>
 </plugin>
 ```

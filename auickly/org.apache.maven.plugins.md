@@ -42,7 +42,7 @@
             <manifest>
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
-                <mainClass>my.Main</mainClass>
+                <mainClass>fully.qualified.MainClass</mainClass>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                 <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
             </manifest>

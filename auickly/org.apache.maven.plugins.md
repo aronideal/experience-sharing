@@ -40,7 +40,9 @@
     <configuration>
         <archive>
             <manifest>
+                <!-- 是否在Manifest文件里增加Class-Path -->
                 <addClasspath>true</addClasspath>
+                <!-- Manifest文件里Class-Path项前增加的路径 -->
                 <classpathPrefix>lib/</classpathPrefix>
                 <mainClass>fully.qualified.MainClass</mainClass>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -89,7 +91,7 @@
     	</execution>
     </executions>
     <configuration>
-        <attach>false</attach>
+        <!-- Manifest文件是否使用与dist版本一致 -->
         <useDefaultManifestFile>true</useDefaultManifestFile>
         <encoding>UTF-8</encoding>
     </configuration>

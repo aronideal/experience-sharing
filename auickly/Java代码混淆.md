@@ -38,7 +38,7 @@
             <option>-keep class org.bouncycastle.** { *;}</option>
             <!-- 自定义的 -->
             <option>-keep class com.xxx.toolkit.SignedVerify { *;}</option>
-            <option>-keep class com.xxx.toolkit.pojo.VerifyResponse { *;}</option>
+            <option>-keep class com.xxx.toolkit.pojo.** { *;}</option>
         </options>
         <libs>
             <lib>${java.home}/lib/rt.jar</lib>

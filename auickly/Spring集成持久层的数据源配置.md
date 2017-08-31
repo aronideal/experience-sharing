@@ -31,8 +31,8 @@
 </bean>
 ```
 
-## Druid
-### [http://druid.io/](http://druid.io/)
+## Alibaba Druid
+### [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
 ``` xml
 <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
     <property name="driverClassName" value="${jdbc.driverClassName}" />

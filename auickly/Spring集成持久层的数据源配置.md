@@ -30,3 +30,30 @@
     <property name="maximumPoolSize" value="150" />
 </bean>
 ```
+
+## Druid
+### [http://druid.io/](http://druid.io/)
+``` xml
+<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+    <property name="driverClassName" value="${jdbc.driverClassName}" />
+    <property name="url" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+    <property name="validationQuery" value="SELECT 1" />
+    
+    <property name="initialSize" value="20" />
+    <property name="minIdle" value="20" />
+    <property name="maxActive" value="150" />
+    <property name="maxWait" value="60000" />
+    <property name="testOnReturn" value="true" />
+    <property name="testOnBorrow" value="true" />
+    <property name="testWhileIdle" value="true" />
+    <property name="timeBetweenEvictionRunsMillis" value="300000" />
+    <property name="filters" value="stat" /> 
+    <property name="proxyFilters">
+        <list>
+            <ref bean="logFilter" />
+        </list>
+    </property>
+</bean>
+```

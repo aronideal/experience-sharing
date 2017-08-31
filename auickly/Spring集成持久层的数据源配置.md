@@ -1,12 +1,16 @@
 # Spring集成持久层的数据源配置
 
 ## Apache Commons DBCP
+### [http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi](http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi)
 
 ## Apache Commons DBCP 2
+### [http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi](http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi)
 
 ## C3P0
+### [http://www.mchange.com/projects/c3p0/](http://www.mchange.com/projects/c3p0/)
 
 ## HikariCP
+### [http://brettwooldridge.github.io/HikariCP/](http://brettwooldridge.github.io/HikariCP/)
 ``` xml
 <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" scope="singleton">
     <property name="driverClassName" value="${jdbc.driverClassName}" />

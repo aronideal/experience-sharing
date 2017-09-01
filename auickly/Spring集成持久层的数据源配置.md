@@ -6,7 +6,7 @@
 ## Apache Commons DBCP 2
 ### [http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi](http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi)
 ``` xml
-<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" scope="singleton">
     <property name="driverClassName" value="${jdbc.driverClassName}" />
     <property name="url" value="${jdbc.url}" />
     <property name="username" value="${jdbc.username}" />
@@ -65,7 +65,7 @@
 ## Alibaba Druid
 ### [https://github.com/alibaba/druid](https://github.com/alibaba/druid)
 ``` xml
-<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close" scope="singleton">
     <property name="driverClassName" value="${jdbc.driverClassName}" />
     <property name="url" value="${jdbc.url}" />
     <property name="username" value="${jdbc.username}" />

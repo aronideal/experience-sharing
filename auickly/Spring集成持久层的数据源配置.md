@@ -5,6 +5,37 @@
 
 ## Apache Commons DBCP 2
 ### [http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi](http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi)
+``` xml
+<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${jdbc.driverClassName}" />
+    <property name="url" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+    <property name="validationQuery" value="SELECT 1" />
+    
+    <!--initialSize: 初始化连接 -->
+    <property name="initialSize" value="20" />
+    <!--minIdle: 最小空闲连接 -->
+    <property name="minIdle" value="20" />
+    <!--maxIdle: 最大空闲连接 -->
+    <property name="maxIdle" value="100" />
+    <!--maxActive: 最大连接数量 -->
+    <property name="maxTotal" value="200" />
+    <!--removeAbandoned: 是否自动回收超时连接 -->
+    <property name="removeAbandonedOnBorrow" value="true" />
+    <!--removeAbandonedTimeout: 超时时间(以秒数为单位) -->
+    <property name="removeAbandonedTimeout" value="180" />
+    <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒 -->
+    <property name="maxWaitMillis" value="60000" />
+    <!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->
+    <property name="timeBetweenEvictionRunsMillis" value="300000" />
+    <!-- 1000 * 60 * 30 连接在池中保持空闲而不被空闲连接回收器线程 -->
+    <property name="minEvictableIdleTimeMillis" value="3600000" />
+    <property name="testOnBorrow" value="true" />
+    <property name="testWhileIdle" value="true" />
+    <property name="numTestsPerEvictionRun" value="200" />
+</bean>
+```
 
 ## C3P0
 ### [http://www.mchange.com/projects/c3p0/](http://www.mchange.com/projects/c3p0/)

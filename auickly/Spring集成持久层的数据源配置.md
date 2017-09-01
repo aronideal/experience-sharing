@@ -2,7 +2,7 @@
 
 ## Apache Commons DBCP
 ### [http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi](http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi)
-建议使用Apache Commons DBCP 2取而代之，以避免并发操作发生的各种问题。
+建议使用 Apache Commons DBCP 2 取而代之，以避免并发操作发生的各种问题。
 
 ## Apache Commons DBCP 2
 ### [http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi](http://commons.apache.org/proper/commons-dbcp/download_dbcp.cgi)

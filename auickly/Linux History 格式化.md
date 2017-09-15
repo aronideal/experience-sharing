@@ -15,7 +15,7 @@ $ sudo vi /etc/profile
 
 `whoami` -> 操作命令使用的登录用户
 
-${USER_IP} -> 顾名思义，执行命令的客户端IP地址
+${WHO_IP} -> 顾名思义，执行命令的客户端IP地址
 
 ## 使变更生效
 $ sudo source /etc/profile

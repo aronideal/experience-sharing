@@ -2,7 +2,7 @@
 # Linux History 格式化显示配置
 
 ## 添加环境变量
-vi /etc/profile
+$ sudo vi /etc/profile
 
 	WHO_IP=`who -u am i 2> /dev/null| awk '{print $NF}' | sed -e 's/[()]//g'`
 	export HISTTIMEFORMAT="[%F %T]  `whoami`  ${WHO_IP}  "
@@ -18,7 +18,7 @@ vi /etc/profile
 ${USER_IP} -> 顾名思义，执行命令的客户端IP地址
 
 ## 使变量生效
-source /etc/profile
+$ sudo source /etc/profile
 
 ## 测试
-history
+$ history

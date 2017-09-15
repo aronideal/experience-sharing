@@ -4,7 +4,7 @@
 ## 添加环境变量
 vi /etc/profile
 
-	WHO_IP=`who -u am i 2 > /dev/null| awk '{print $NF}' | sed -e 's/[()]//g'`
+	WHO_IP=`who -u am i 2> /dev/null| awk '{print $NF}' | sed -e 's/[()]//g'`
 	export HISTTIMEFORMAT="[%F %T]  `whoami`  ${WHO_IP}  "
 
 ### 重要参数介绍

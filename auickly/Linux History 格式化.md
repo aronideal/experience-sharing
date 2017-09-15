@@ -5,7 +5,7 @@
 $ sudo vi /etc/profile
 
 	WHO_IP=`who -u am i 2> /dev/null| awk '{print $NF}' | sed -e 's/[()]//g'`
-	export HISTTIMEFORMAT="[%F %T]  `whoami`  ${WHO_IP}  "
+	export HISTTIMEFORMAT="[%F %T]  ${WHO_IP}  `whoami`  "
 
 ### 重要参数介绍
 

@@ -4,7 +4,7 @@
 ## 添加环境变量
 $ sudo vi /etc/profile
 
-	WHO_IP=`who -u am i 2> /dev/null| awk '{print $NF}' | sed -e 's/[()]//g'`
+	WHO_IP=`who -u am i 2> /dev/null | awk '{print $NF}' | sed -e 's/[()]//g'`
 	export HISTTIMEFORMAT="[%F %T]  ${WHO_IP}  `whoami`  "
 
 ### 重要参数介绍
@@ -17,7 +17,7 @@ $ sudo vi /etc/profile
 
 ${USER_IP} -> 顾名思义，执行命令的客户端IP地址
 
-## 使变量生效
+## 使变更生效
 $ sudo source /etc/profile
 
 ## 测试

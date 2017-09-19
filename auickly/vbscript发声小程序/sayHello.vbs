@@ -1,0 +1,1 @@
+CreateObject("SAPI.SpVoice").Speak "Hello, You are here."

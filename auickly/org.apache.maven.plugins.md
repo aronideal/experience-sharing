@@ -19,6 +19,11 @@
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-dependency-plugin</artifactId>
+    <!--
+    <configuration>
+        <outputDirectory>${project.build.directory}/dependency</outputDirectory>
+    </configuration>
+    -->
     <executions>
         <execution>
             <id>copy</id>

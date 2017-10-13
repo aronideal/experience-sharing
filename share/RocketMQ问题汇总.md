@@ -1,7 +1,7 @@
 
 # 问题1：
 
-持续报 wait response on the channel <10.0.6.39:10911> timeout
+< 持续报 wait response on the channel <10.0.6.39:10911> timeout >
 
 com.alibaba.rocketmq.client.exception.MQClientException: Send [1] times, still failed, cost [150586]ms, Topic: INSERT_USER_010000006043, BrokersSent: [broker-a, null, null, null, null, null] See https://github.com/alibaba/RocketMQ/issues/50 for further details. at com.alibaba.rocketmq.client.impl.producer.DefaultMQProducerImpl.sendDefaultImpl(DefaultMQProducerImpl.java:578) at com.alibaba.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1031) at com.alibaba.rocketmq.client.impl.producer.DefaultMQProducerImpl.send(DefaultMQProducerImpl.java:1025) at com.alibaba.rocketmq.client.producer.DefaultMQProducer.send(DefaultMQProducer.java:95) at
 ... more

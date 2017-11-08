@@ -13,6 +13,6 @@
 
 ## 解决办法：
 
-    修改sonarqube用到的MySQL的max_allowed_packet参数值大于用到的大小。
+    修改SonarQube用到的MySQL的max_allowed_packet参数值大于用到的大小。
 
 

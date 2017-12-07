@@ -5,7 +5,7 @@
 
 #### 源码官网： [https://github.com/alibaba/dubbo](https://github.com/alibaba/dubbo)
 
-#### 编译好的： [https://pan.baidu.com/s/1qYxCFBQ](https://pan.baidu.com/s/1qYxCFBQ)
+#### 编译好的： [https://pan.baidu.com/s/1nuJNkXb](https://pan.baidu.com/s/1nuJNkXb)
 
 ## 解决方案2： 修改JDK版本。
 

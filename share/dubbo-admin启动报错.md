@@ -3,10 +3,10 @@
 
 ## 解决： 1. 升级为新版本 dubbo-admin。
 
-### 源码官网： [https://github.com/alibaba/dubbo](https://github.com/alibaba/dubbo)
+#### 源码官网： [https://github.com/alibaba/dubbo](https://github.com/alibaba/dubbo)
 
-### 编译好的： [https://pan.baidu.com/s/1qYxCFBQ](https://pan.baidu.com/s/1qYxCFBQ)
+#### 编译好的： [https://pan.baidu.com/s/1qYxCFBQ](https://pan.baidu.com/s/1qYxCFBQ)
 
 ## 解决： 2. 修改JDK版本。
 
-### 没试过，请亲测
+#### 没试过，请亲测

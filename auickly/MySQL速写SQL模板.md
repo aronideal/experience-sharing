@@ -33,6 +33,31 @@ CREATE TABLE `table_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table_name';
 ```
 
+其它类型
+
+```
+  | SMALLINT[(length)] [UNSIGNED] [ZEROFILL]
+  | MEDIUMINT[(length)] [UNSIGNED] [ZEROFILL]
+  | BIGINT[(length)] [UNSIGNED] [ZEROFILL]
+  | REAL[(length,decimals)] [UNSIGNED] [ZEROFILL]
+  | DOUBLE[(length,decimals)] [UNSIGNED] [ZEROFILL]
+  | FLOAT[(length,decimals)] [UNSIGNED] [ZEROFILL]
+  | DECIMAL(length,decimals) [UNSIGNED] [ZEROFILL]
+  | NUMERIC(length,decimals) [UNSIGNED] [ZEROFILL]
+  | DATE
+  | TIME
+  | TIMESTAMP
+  | CHAR(length) [BINARY | ASCII | UNICODE]
+  | TINYBLOB
+  | BLOB
+  | MEDIUMBLOB
+  | LONGBLOB
+  | TINYTEXT
+  | TEXT
+  | MEDIUMTEXT
+  | LONGTEXT
+```
+
 FOREIGN KEY
 
 ```mysql

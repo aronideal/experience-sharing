@@ -104,8 +104,29 @@ CURRENT_TIMESTAMP
 CREATE INDEX
 
 ```mysql
-CREATE [UNIQUE|FULLTEXT|SPATIAL] INDEX index_name [index_type]
-    ON tbl_name (col_name [(length)] [ASC | DESC],...)
+CREATE [UNIQUE|FULLTEXT|SPATIAL] INDEX index_name
+    [index_type]
+    ON tbl_name (index_col_name,...)
+    [index_option]
+    [algorithm_option | lock_option] ...
+
+index_col_name:
+    col_name [(length)] [ASC | DESC]
+
+index_option:
+    KEY_BLOCK_SIZE [=] value
+  | index_type
+  | WITH PARSER parser_name
+  | COMMENT 'string'
+
+index_type:
+    USING {BTREE | HASH}
+
+algorithm_option:
+    ALGORITHM [=] {DEFAULT|INPLACE|COPY}
+
+lock_option:
+    LOCK [=] {DEFAULT|NONE|SHARED|EXCLUSIVE}
 ```
 
 

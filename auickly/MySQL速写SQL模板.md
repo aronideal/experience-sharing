@@ -33,7 +33,7 @@ CREATE TABLE `table_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table_name';
 ```
 
-其它类型
+    其它类型
 
 ```
   | SMALLINT[(length)] [UNSIGNED] [ZEROFILL]

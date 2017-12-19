@@ -19,7 +19,7 @@ DROP TABLE IF EXISTS `table_name`;
 
 CREATE TABLE
 
-```mysql
+```sql
 CREATE TABLE `table_name` (
   `id` VARCHAR(36) NOT NULL COMMENT 'ID',
   `col_VARCHAR` VARCHAR(120) NOT NULL COMMENT 'VARCHAR',

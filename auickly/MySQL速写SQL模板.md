@@ -23,6 +23,8 @@ CREATE TABLE
 CREATE TABLE `table_name` (
   `id` VARCHAR(36) NOT NULL COMMENT 'ID',
   `col_VARCHAR` VARCHAR(120) NOT NULL COMMENT 'col_VARCHAR',
+  `col_TINYINT` TINYINT NOT NULL COMMENT 'TINYINT',
+  `col_INT` INT COMMENT 'col_INTEGER',
   `col_INTEGER` INTEGER COMMENT 'col_INTEGER',
   `col_null` VARCHAR(200) COMMENT 'col_null',
   `col_DATETIME` DATETIME NOT NULL COMMENT 'col_DATETIME',
@@ -47,12 +49,16 @@ INSERT
 INSERT INTO `table_name` (
 `id`,
 `col_VARCHAR`,
+`col_TINYINT`,
+`col_INT`,
 `col_INTEGER`,
 `col_null`,
 `col_DATETIME`
 ) VALUES (
 'idddd',
 'abcdefg',
+1,
+6,
 6,
 null,
 STR_TO_DATE('2017-12-19 11:36:04','%Y-%m-%d %H:%i:%s')

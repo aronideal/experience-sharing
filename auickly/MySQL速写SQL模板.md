@@ -33,7 +33,7 @@ CREATE TABLE `table_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table_name';
 ```
 
-    其它类型
+    其它类型：
 
 ```
   | SMALLINT[(length)] [UNSIGNED] [ZEROFILL]
@@ -90,12 +90,13 @@ STR_TO_DATE('2017-12-19 11:36:04','%Y-%m-%d %H:%i:%s')
 )
 ```
 
-    默认值
+    默认值：
 
 ```
 // DATE
 NOW() 
 CURRENT_DATE
+
 // TIMESTAMP
 CURRENT_TIMESTAMP
 ```

@@ -101,3 +101,12 @@ CURRENT_DATE
 CURRENT_TIMESTAMP
 ```
 
+CREATE INDEX
+
+```mysql
+CREATE [UNIQUE|FULLTEXT|SPATIAL] INDEX index_name [index_type]
+    ON tbl_name (col_name [(length)] [ASC | DESC],...)
+```
+
+
+

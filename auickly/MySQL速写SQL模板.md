@@ -15,11 +15,11 @@ CREATE TABLE
 
 ```mysql
 CREATE TABLE `table_name` (
-  `id` varchar(36) NOT NULL COMMENT 'ID',
-  `col_VARCHAR` varchar(120) NOT NULL COMMENT 'col_VARCHAR',
-  `col_INTEGER` integer COMMENT 'col_INTEGER',
-  `col_null` varchar(200) COMMENT 'col_null',
-  `col_DATETIME` datetime NOT NULL COMMENT 'col_DATETIME',
+  `id` VARCHAR(36) NOT NULL COMMENT 'ID',
+  `col_VARCHAR` VARCHAR(120) NOT NULL COMMENT 'col_VARCHAR',
+  `col_INTEGER` INTEGER COMMENT 'col_INTEGER',
+  `col_null` VARCHAR(200) COMMENT 'col_null',
+  `col_DATETIME` DATETIME NOT NULL COMMENT 'col_DATETIME',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_1` (`col_INTEGER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table_name';

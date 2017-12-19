@@ -31,6 +31,16 @@ CREATE TABLE `table_name` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table_name';
 ```
 
+FOREIGN KEY
+
+```mysql
+CREATE TABLE `table_name`
+(
+  `super_id` VARCHAR(36) NOT NULL COMMENT '引用table_super_name表',
+  FOREIGN KEY (`super_id`) REFERENCES `table_super_name` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='table_name';
+```
+
 INSERT
 
 ```mysql

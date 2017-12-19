@@ -5,6 +5,12 @@ CREATE DATABASE
 CREATE DATABASE `database_name` DEFAULT CHARACTER SET utf8;
 ```
 
+USE
+
+```mysql
+USE `study`;
+```
+
 DROP TABLE
 
 ```mysql

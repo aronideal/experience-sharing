@@ -14,10 +14,10 @@ dependencies {
 ```java
 private static final int PERMISSION_UPGRADEAPP_REQUESTCODE = 1;
 private static final String[] PERMISSION_UPGRADEAPP_USES = {
-Manifest.permission.READ_EXTERNAL_STORAGE, 
-Manifest.permission.WRITE_EXTERNAL_STORAGE, 
-Manifest.permission.INTERNET, 
-Manifest.permission.REQUEST_INSTALL_PACKAGES
+            Manifest.permission.READ_EXTERNAL_STORAGE, 
+            Manifest.permission.WRITE_EXTERNAL_STORAGE, 
+            Manifest.permission.INTERNET, 
+            Manifest.permission.REQUEST_INSTALL_PACKAGES
 };
 ```
 

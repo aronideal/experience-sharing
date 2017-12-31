@@ -1,11 +1,23 @@
 
-屏蔽IP地址
+查看当前ip规则
+
+    $ sudo iptables --list
+
+屏蔽IP地址（-A表示追加、-D表示删除；INPUT请求入；-j： DROP拒绝、ACCEPT接受）
 
     $ sudo iptables -A INPUT -s x.x.x.x -p TCP -j DROP
 
-屏蔽IP地址段
+屏蔽IP地址段（-A表示追加、-D表示删除；INPUT请求入；-j： DROP拒绝、ACCEPT接受）
 
     $ sudo iptables -A INPUT -s x.x.x.0/255 -p TCP -j DROP
+
+开放指定的端口
+
+    $ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+
+禁止指定的端口
+
+    $ sudo iptables -A INPUT -p tcp --dport 80 -j DROP
 
 安装ip集工具
 

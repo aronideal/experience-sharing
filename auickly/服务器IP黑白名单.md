@@ -26,7 +26,9 @@ insecureip 是ip集名称。增加 maxelem 属性来增加ip数量。如 maxelem
 ip集可保存到文件中
 
     $ sudo ipset save insecureip -f /opt/ipset/insecureip.txt
+
     $ sudo ipset destroy insecureip
+
     $ sudo ipset restore -f /opt/ipset/insecureip.txt
 
 

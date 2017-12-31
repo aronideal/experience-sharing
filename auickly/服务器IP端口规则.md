@@ -21,16 +21,16 @@
 
 举例（INPUT 规则一定要先 ACCEPT，然后再 DROP）：
 
-$ sudo iptables -F
+    $ sudo iptables -F
 
-$ sudo iptables -A INPUT -s x.x.x.x -p TCP --dport 22 -j ACCEPT
+    $ sudo iptables -A INPUT -s x.x.x.x -p TCP --dport 22 -j ACCEPT
 
-$ sudo iptables -A INPUT -p TCP --dport 80 -j ACCEPT
+    $ sudo iptables -A INPUT -p TCP --dport 80 -j ACCEPT
 
-$ sudo iptables -A INPUT -p TCP --dport 8081 -j ACCEPT
+    $ sudo iptables -A INPUT -p TCP --dport 8081 -j ACCEPT
 
-$ sudo iptables -A INPUT -j DROP
+    $ sudo iptables -A INPUT -j DROP
 
-$ sudo iptables -nL
+    $ sudo iptables -nL
 
-$ sudo service iptables save
+    $ sudo service iptables save

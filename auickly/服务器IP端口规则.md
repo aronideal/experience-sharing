@@ -19,28 +19,18 @@
 
     $ sudo iptables -A INPUT -p tcp --dport 80 -j DROP
 
-安装ip集工具
+举例（INPUT 规则一定要先 ACCEPT，然后再 DROP）：
 
-    $ sudo yum install ipset
+$ sudo iptables -F
 
-insecureip 是ip集名称。增加 maxelem 属性来增加ip数量。如 maxelem 1000000
+$ sudo iptables -A INPUT -s x.x.x.x -p TCP --dport 22 -j ACCEPT
 
-    $ sudo ipset create insecureip hash:net
+$ sudo iptables -A INPUT -p TCP --dport 80 -j ACCEPT
 
-在ip集增加ip
+$ sudo iptables -A INPUT -p TCP --dport 8081 -j ACCEPT
 
-    $ sudo ipset add insecureip 1.1.1.1/32
+$ sudo iptables -A INPUT -j DROP
 
-查看所有ip集
+$ sudo iptables -nL
 
-    $ sudo ipset list
-
-ip集可保存到文件中
-
-    $ sudo ipset save insecureip -f /opt/ipset/insecureip.txt
-
-    $ sudo ipset destroy insecureip
-
-    $ sudo ipset restore -f /opt/ipset/insecureip.txt
-
-
+$ sudo service iptables save

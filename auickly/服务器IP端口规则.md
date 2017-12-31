@@ -28,9 +28,13 @@
     $ sudo iptables -A INPUT -p TCP --dport 80 -j ACCEPT
 
     $ sudo iptables -A INPUT -p TCP --dport 8081 -j ACCEPT
+    
+    # 使用这句则可以ping出去 $ sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
     $ sudo iptables -A INPUT -j DROP
 
     $ sudo iptables -nL
 
     $ sudo service iptables save
+
+保存后，请检查 /etc/sysconfig/iptables

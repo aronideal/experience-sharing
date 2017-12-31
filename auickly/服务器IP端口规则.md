@@ -29,7 +29,7 @@
 
     $ sudo iptables -A INPUT -p TCP --dport 8081 -j ACCEPT
     
-    # 使用这句则可以ping出去 $ sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+    # 使用这句则可以ping出去 $ sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
     $ sudo iptables -A INPUT -j DROP
 

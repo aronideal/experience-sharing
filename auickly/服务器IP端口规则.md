@@ -1,7 +1,7 @@
 
-查看当前ip规则
+查看当前ip规则（加上n属性，域名形式显示）
 
-    $ sudo iptables --list
+    $ sudo iptables -L
 
 屏蔽IP地址（-A表示追加、-D表示删除；INPUT请求入；-j： DROP拒绝、ACCEPT接受）
 

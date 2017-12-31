@@ -11,11 +11,11 @@
 
     $ sudo iptables -A INPUT -s x.x.x.0/255 -p TCP -j DROP
 
-开放指定的端口
+开放指定的端口（-A表示追加、-D表示删除；INPUT请求入；--dport表示目标端口（服务器端口）、--sport表示源端口（客户端端口）；-j： DROP拒绝、ACCEPT接受）
 
     $ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
-禁止指定的端口
+禁止指定的端口（-A表示追加、-D表示删除；INPUT请求入；--dport表示目标端口（服务器端口）、--sport表示源端口（客户端端口）；-j： DROP拒绝、ACCEPT接受）
 
     $ sudo iptables -A INPUT -p tcp --dport 80 -j DROP
 

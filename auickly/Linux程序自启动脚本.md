@@ -66,3 +66,5 @@ exit $RETVAL
     chmod +x /etc/init.d/testsrv
 
     chkconfig testsrv on
+
+    service testsrv restart

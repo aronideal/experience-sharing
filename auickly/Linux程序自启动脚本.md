@@ -19,9 +19,8 @@ start() {
     
     $testsrv -a $arg0
 
-    RETVAL=$?
     echo
-    return $RETVAL
+    return $?
 }
 
 stop() {
@@ -30,15 +29,16 @@ stop() {
         killall testsrv
     fi
     
-    RETVAL=$?
     echo
-    return $RETVAL
+    return $?
 }
 
 status() {
     echo -n $"testsrv status:"
     ps -ef | grep testsrv
+    
     echo
+    return $?
 }
 
 case "$1" in
@@ -64,7 +64,7 @@ case "$1" in
 
 esac
 
-exit $RETVAL
+exit $?
 ```
 
     chmod +x /etc/init.d/testsrv

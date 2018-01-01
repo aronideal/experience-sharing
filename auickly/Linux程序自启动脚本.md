@@ -20,6 +20,7 @@ start() {
     $testsrv -a $arg0
 
     RETVAL=$?
+    echo
     return $RETVAL
 }
 
@@ -28,13 +29,16 @@ stop() {
         echo -n $"Stopping testsrv"
         killall testsrv
     fi
+    
     RETVAL=$?
+    echo
     return $RETVAL
 }
 
 status() {
     echo -n $"testsrv status:"
     ps -ef | grep testsrv
+    echo
 }
 
 case "$1" in

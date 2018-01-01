@@ -56,6 +56,7 @@ case "$1" in
             stop
             start
             ;;
+        
         status)
             status
             ;;

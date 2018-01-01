@@ -29,7 +29,15 @@
 
     $ sudo iptables -A INPUT -p TCP --dport 8081 -j ACCEPT
     
-    # 使用这句则可以ping出去 $ sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+    # 允许当前主机访问任何端口
+    
+    $ sudo iptables -A INPUT -s 127.0.0.1 -p tcp -j ACCEPT
+    
+    $ sudo iptables -A INPUT -s 127.0.0.1 -p udp -j ACCEPT
+    
+    # 允许本机访问外网的权限
+    
+    $ sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 
     $ sudo iptables -A INPUT -j DROP
 

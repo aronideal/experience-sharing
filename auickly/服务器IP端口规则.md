@@ -46,3 +46,5 @@
     $ sudo service iptables save
 
 保存后，请检查 /etc/sysconfig/iptables
+
+启用规则 service iptables restart

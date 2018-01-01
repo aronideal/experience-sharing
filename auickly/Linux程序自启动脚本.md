@@ -7,6 +7,7 @@
 #!/bin/sh
 #
 # testsrv    testsrv程序的启动脚本
+# chkconfig: 2345 10 90
 
 # 如果某某命令未安装，则直接退出
 #[ -f testsrv ] || exit 0

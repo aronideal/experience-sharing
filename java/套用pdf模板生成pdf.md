@@ -1,4 +1,20 @@
 
+## 1. 准备pdf模板
+
+使用 Adobe Acrobat 制作生成pdf，属性部分按需命名
+
+## 2. 引入工具包
+
+```xml
+<dependency>
+    <groupId>com.itextpdf</groupId>
+    <artifactId>itextpdf</artifactId>
+    <version>5.5.12</version>
+</dependency>
+```
+
+## 3. 套用pdf模板，生成填充后的pdf
+
 ```java
 public final class TemplateUtils {
 

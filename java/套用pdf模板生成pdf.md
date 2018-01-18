@@ -19,7 +19,7 @@
 public final class PdfTplUtils {
 
     public static void fillPdf(byte[] pdfTpl, byte[] ownerPassword, OutputStream pdfOutput, List<Properties> fields) throws IOException, DocumentException {
-        PdfReader reader = new PdfReader(pdfTpl, ownerPassword);
+        PdfReader reader = new PdfReader(pdfTpl.clone(), ownerPassword);
         PdfStamper stamper = new PdfStamper(reader, pdfOutput);
 
         AcroFields acroFields = stamper.getAcroFields();

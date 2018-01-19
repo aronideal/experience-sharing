@@ -1,7 +1,7 @@
 
 ## pom.xml 定义不同环境的配置
 
-```
+```xml
 <project>
     ...
     <profiles>

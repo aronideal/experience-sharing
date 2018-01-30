@@ -18,7 +18,7 @@
 ```java
 public final class PdfTplUtils {
 
-    public static void fillPdf(byte[] pdfTpl, byte[] ownerPassword, OutputStream pdfOutput, List<Properties> fields) throws IOException, DocumentException {
+    public static void fillPdf(final byte[] pdfTpl, final byte[] ownerPassword, final OutputStream pdfOutput, final List<Properties> fields) throws IOException, DocumentException {
         PdfReader reader = new PdfReader(pdfTpl.clone(), ownerPassword);
         PdfStamper stamper = new PdfStamper(reader, pdfOutput);
 

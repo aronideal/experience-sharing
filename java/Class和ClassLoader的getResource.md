@@ -45,4 +45,4 @@ A.class.getResource("../folder2/file2")
 
 ## ClassLoader.getResource
 
-与 Class.getResource 不同的是，绝对定位使用 '.'，而不是 '/'
+与 Class.getResource 不同的是，绝对定位使用 ‘.’，而不是 ‘/’

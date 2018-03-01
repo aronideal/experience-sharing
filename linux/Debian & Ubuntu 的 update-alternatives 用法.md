@@ -9,7 +9,7 @@
 
 ## 移除候选项（以python为例）
 
-#### 移除候选项条目
+* 移除候选项条目
 
 命令用法：--remove <名称> <路径>
 
@@ -17,7 +17,7 @@
 
     $ sudo update-alternatives --remove python /usr/bin/python3.5 1
 
-#### 移除候选项所有条目
+* 移除候选项所有条目
 
 命令用法：--remove-all <名称>
 

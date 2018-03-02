@@ -20,13 +20,13 @@
 
 	$ update-alternatives --list java
 
-	$ sudo update-alternatives --remove java /usr/lib/jvm/jdk-8-oracle-arm32-vfp-hflt/bin/java
+	$ sudo update-alternatives --remove java [路径]
 
-##### 查找到需要卸载的java包，并卸载（如oracle-java8-jdk）
+##### 查找到需要卸载的java包，并执行卸载
 
 	$ dpkg --list | grep java
 
-	$ sudo apt-get purge oracle-java8-jdk
+	$ sudo apt-get purge [包名]
 
 ## 安装软件
 

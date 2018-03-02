@@ -1,11 +1,7 @@
 
-## 清理软件环境
+## 清理软件包缓存
 
     $ sudo apt-get clean
-
-    $ sudo apt-get autoclean
-
-    $ sudo apt-get autoremove
 
 ## 卸载软件
 

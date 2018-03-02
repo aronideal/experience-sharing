@@ -5,8 +5,8 @@
 
     $ sudo apt-get autoclean
 
-    $ apt-get autoremove
+    $ sudo apt-get autoremove
 
 ## 卸载软件
 
-    $ apt-get purge <软件名>
+    $ sudo apt-get purge <软件名>

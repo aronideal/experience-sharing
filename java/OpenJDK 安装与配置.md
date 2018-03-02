@@ -121,6 +121,7 @@
 略
 
 ## 更多安装方法
-请在官网查找：http://openjdk.java.net/install/
+
+官网：[http://openjdk.java.net/install/](http://openjdk.java.net/install/)
 
 

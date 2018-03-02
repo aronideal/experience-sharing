@@ -5,7 +5,7 @@
 
     $ sudo apt-get autoclean
 
-    $ sudo apt-get autoremove
+    $ sudo apt-get autoremove
 
 ## 卸载软件
 

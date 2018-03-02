@@ -9,4 +9,4 @@
 
 ## 卸载软件
 
-    $ apt-get –purge remove <软件名>
+    $ apt-get purge <软件名>

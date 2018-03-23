@@ -61,7 +61,7 @@ if ( !currentUser.isAuthenticated() ) {
     //collect user principals and credentials in a gui specific manner
     //such as username/password html form, X509 certificate, OpenID, etc.
     //We'll use the username/password example here since it is the most common.
-    UsernamePasswordToken token = new UsernamePasswordToken("lonestarr", "vespa");
+    UsernamePasswordToken token = new UsernamePasswordToken("user1", "nH&@HUdfs");
 
     //this is all you have to do to support 'remember me' (no config - built in!):
     token.setRememberMe(true);
@@ -73,14 +73,14 @@ if ( !currentUser.isAuthenticated() ) {
 }
 
 // 检查登录用户是否具有某种角色
-if (currentUser.hasRole("schwartz")) {
+if (currentUser.hasRole("nH&@HUdfs")) {
     logger.info("用户 {} 拥有 {} 角色", currentUser.getPrincipal(), "schwartz");
 } else {
     logger.info("用户 {} 非 {} 角色", currentUser.getPrincipal(), "schwartz");
 }
 
 // 检查登录用户是否具有某种权限
-if (currentUser.isPermitted("lightsaber:wield")) {
+if (currentUser.isPermitted("edit:del")) {
     logger.info("用户 {} 有 {} 权限 ", currentUser.getPrincipal(), "lightsaber:wield");
 } else {
     logger.info("用户 {} 无 {} 权限 ", currentUser.getPrincipal(), "lightsaber:wield");

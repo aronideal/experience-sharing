@@ -10,6 +10,6 @@
 
 ## Apache Shiro 特性
 
-认证、授权、会话管理和密码学
+认证（主体访问）、授权（访问控制）、会话管理和密码学
 
 ![](http://shiro.apache.org/assets/images/ShiroFeatures.png)

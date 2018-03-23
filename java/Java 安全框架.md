@@ -53,7 +53,7 @@ Factory<SecurityManager> factory = new IniSecurityManagerFactory("classpath:shir
 SecurityManager securityManager = factory.getInstance();
 SecurityUtils.setSecurityManager(securityManager);
 
-// 获取当前用户对象
+// 获取当前用户主体对象
 Subject currentUser = SecurityUtils.getSubject();
 
 // 检查是否登录或登录操作

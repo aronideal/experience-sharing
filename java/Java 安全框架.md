@@ -55,38 +55,36 @@ SecurityUtils.setSecurityManager(securityManager);
 
 // 获取当前用户主体对象
 Subject currentUser = SecurityUtils.getSubject();
+String username = "";
 
 // 检查是否登录或登录操作
 if ( !currentUser.isAuthenticated() ) {
-    //collect user principals and credentials in a gui specific manner
-    //such as username/password html form, X509 certificate, OpenID, etc.
-    //We'll use the username/password example here since it is the most common.
-    UsernamePasswordToken token = new UsernamePasswordToken("user1", "nH&@HUdfs");
-
-    //this is all you have to do to support 'remember me' (no config - built in!):
+    UsernamePasswordToken token = new UsernamePasswordToken("user1", "nH&@HUdfs");
+    
     token.setRememberMe(true);
 
     currentUser.login(token);
-    logger.info("用户 {} 登录成功", currentUser.getPrincipal());
+    username = (String) currentUser.getPrincipal();
+    logger.info("用户 {} 登录成功", username);
 } else {
-    logger.info("用户 {} 已登录", currentUser.getPrincipal());
+    logger.info("用户 {} 已登录", username);
 }
 
 // 检查登录用户是否具有某种角色
 if (currentUser.hasRole("user_role1")) {
-    logger.info("用户 {} 拥有 {} 角色", currentUser.getPrincipal(), "schwartz");
+    logger.info("用户 {} 拥有 {} 角色", username, "user_role1");
 } else {
-    logger.info("用户 {} 非 {} 角色", currentUser.getPrincipal(), "schwartz");
+    logger.info("用户 {} 非 {} 角色", username, "user_role1");
 }
 
 // 检查登录用户是否具有某种权限
 if (currentUser.isPermitted("edit:del")) {
-    logger.info("用户 {} 有 {} 权限 ", currentUser.getPrincipal(), "lightsaber:wield");
+    logger.info("用户 {} 有 {} 权限 ", username, "edit:del");
 } else {
-    logger.info("用户 {} 无 {} 权限 ", currentUser.getPrincipal(), "lightsaber:wield");
+    logger.info("用户 {} 无 {} 权限 ", username, "edit:del");
 }
 
 // 注销
 currentUser.logout();
-logger.info("用户 {} 注销", currentUser.getPrincipal());
+logger.info("用户 {} 注销", username);
 ```

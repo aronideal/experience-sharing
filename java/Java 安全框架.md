@@ -73,7 +73,7 @@ if ( !currentUser.isAuthenticated() ) {
 }
 
 // 检查登录用户是否具有某种角色
-if (currentUser.hasRole("nH&@HUdfs")) {
+if (currentUser.hasRole("user_role1")) {
     logger.info("用户 {} 拥有 {} 角色", currentUser.getPrincipal(), "schwartz");
 } else {
     logger.info("用户 {} 非 {} 角色", currentUser.getPrincipal(), "schwartz");

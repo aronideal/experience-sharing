@@ -72,9 +72,9 @@ if ( !currentUser.isAuthenticated() ) {
 
 // 检查登录用户是否具有某种角色
 if (currentUser.hasRole("user_role1")) {
-    logger.info("用户 {} 拥有 {} 角色", username, "user_role1");
+    logger.info("用户 {} 有 {} 角色", username, "user_role1");
 } else {
-    logger.info("用户 {} 非 {} 角色", username, "user_role1");
+    logger.info("用户 {} 无 {} 角色", username, "user_role1");
 }
 
 // 检查登录用户是否具有某种权限

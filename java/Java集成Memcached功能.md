@@ -1,8 +1,8 @@
 
-# Java集成Memcached功能
-本文以Xmemcached使用为例
+# Java 集成 Memcached功能
+本文以 Xmemcached 使用为例
 
-## 配置pom.xml
+## 配置 pom.xml
 ``` xml
 <dependency>
     <groupId>com.googlecode.xmemcached</groupId>
@@ -11,8 +11,8 @@
 </dependency>
 ```
 
-## 配置Memcached参数
-新建文件spring-memcached.xml
+## 配置 Memcached 参数
+新建文件 spring-memcached.xml
 ``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -38,7 +38,7 @@
 </beans>
 ```
 
-## Memcached接口使用
+## Memcached 接口使用
 ``` java
 @Autowired
 private MemcachedClient memcachedClient;

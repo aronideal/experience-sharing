@@ -149,3 +149,9 @@ public class CustomAuthorizingRealm extends AuthorizingRealm {
 }
 ```
 
+#### 直接实例化 SecurityManager，不从配置读取
+
+```java
+DefaultSecurityManager securityManager = new DefaultSecurityManager();
+```
+

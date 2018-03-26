@@ -130,8 +130,8 @@ public class CustomAuthorizingRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SimpleAuthorizationInfo persistentInfo = new SimpleAuthorizationInfo();
-        String sss = (String) principals.getPrimaryPrincipal();
-        persistentInfo.addStringPermission("edit:*");
+
+        persistentInfo.addStringPermission("edit:*");// 通过 inputToken 的信息从持久层查询权限信息
         persistentInfo.addStringPermission("edit:del");
         return persistentInfo;
     }
@@ -140,8 +140,8 @@ public class CustomAuthorizingRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         UsernamePasswordToken inputToken = (UsernamePasswordToken) token;
 
-        String persistentUsername = "user1";
-        char[] persistentLoginPwd = "NlBd0RncbR1PIRYkpOKAmxZmzN0mqJhapNRLStjCO6UiBEogz351sTtuq60gmYLmdSSAKQfRYmQDhdG3GXmCOg==".toCharArray();
+        String persistentUsername = "user1";// 通过 inputToken 的信息从持久层查询用户信息
+        char[] persistentLoginPwd = "NlBd0RncbR1PIRYkpOKAmxZmzN0mqJhapNRLStjCO6UiBEogz351sTtuq60gmYLmdSSAKQfRYmQDhdG3GXmCOg==".toCharArray();
         byte[] persistentLoginPwdSalt = "fjKLJ2klqNfnesmsDF><>EWM".getBytes(Charset.forName("UTF-8"));
 
         SimpleAuthenticationInfo persistentInfo = new SimpleAuthenticationInfo();

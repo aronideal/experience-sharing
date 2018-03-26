@@ -14,7 +14,7 @@
 
 ![](http://shiro.apache.org/assets/images/ShiroFeatures.png)
 
-## Apache Shiro 集成
+## Apache Shiro 集成（配置方式）
 
 #### 增加 Apache Shiro 配置文件 src/main/resources/shiro.ini
 
@@ -88,3 +88,64 @@ if (currentUser.isPermitted("edit:del")) {
 currentUser.logout();
 logger.info("用户 {} 注销", username);
 ```
+
+## Apache Shiro 集成（非配置方式）
+
+#### 采用自定义登录验证规则，持久层获取用户角色权限数据
+
+```java
+public class CustomAuthorizingRealm extends AuthorizingRealm {
+
+    public CustomAuthorizingRealm() {
+        HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher() {
+            @Override
+            public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
+                UsernamePasswordToken inputToken = (UsernamePasswordToken) token;
+                String inputUsername = inputToken.getUsername();
+                char[] inputLoginPwd = (char[]) inputToken.getPassword();
+
+                SimpleAuthenticationInfo persistentInfo = (SimpleAuthenticationInfo) info;
+                String persistentUsername = persistentInfo.getPrincipals().getPrimaryPrincipal().toString();
+                char[] persistentLoginPwd = (char[]) persistentInfo.getCredentials();
+                byte[] persistentLoginPwdSalt = persistentInfo.getCredentialsSalt().getBytes();
+
+                if (!(persistentUsername.equalsIgnoreCase(inputUsername) && new String(persistentLoginPwd).equals(encodeLoginPwd(inputLoginPwd,
+                        persistentLoginPwdSalt)))) {
+                    return false;
+                }
+                return true;
+            }
+        };
+        setCredentialsMatcher(credentialsMatcher);
+    }
+
+    public static String encodeLoginPwd(char[] loginPwd, byte[] loginPwdSalt) {
+        return new Sha512Hash(loginPwd, loginPwdSalt, 512).toBase64();
+    }
+
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+        SimpleAuthorizationInfo persistentInfo = new SimpleAuthorizationInfo();
+        String sss = (String) principals.getPrimaryPrincipal();
+        persistentInfo.addStringPermission("edit:*");
+        persistentInfo.addStringPermission("edit:del");
+        return persistentInfo;
+    }
+
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+        UsernamePasswordToken inputToken = (UsernamePasswordToken) token;
+
+        String persistentUsername = "user1";
+        char[] persistentLoginPwd = "NlBd0RncbR1PIRYkpOKAmxZmzN0mqJhapNRLStjCO6UiBEogz351sTtuq60gmYLmdSSAKQfRYmQDhdG3GXmCOg==".toCharArray();
+        byte[] persistentLoginPwdSalt = "fjKLJ2klqNfnesmsDF><>EWM".getBytes(Charset.forName("UTF-8"));
+
+        SimpleAuthenticationInfo persistentInfo = new SimpleAuthenticationInfo();
+        persistentInfo.setPrincipals(new SimplePrincipalCollection(persistentUsername, "realm1"));
+        persistentInfo.setCredentials(persistentLoginPwd);
+        persistentInfo.setCredentialsSalt(new SimpleByteSource(persistentLoginPwdSalt));
+        return persistentInfo;
+    }
+}
+```
+

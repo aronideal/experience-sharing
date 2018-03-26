@@ -91,6 +91,14 @@ logger.info("用户 {} 注销", username);
 
 ## Apache Shiro 集成（非配置方式）
 
+#### 定义密码加密策略（登录、注册公用）
+
+```java
+public static String secretLoginPwd(char[] loginPwd, byte[] loginPwdSalt) {
+    return new Sha512Hash(loginPwd, loginPwdSalt, 6).toBase64();
+}
+```
+
 #### 采用自定义登录验证规则，持久层获取用户角色权限数据
 
 ```java
@@ -109,7 +117,7 @@ public class CustomAuthorizingRealm extends AuthorizingRealm {
                 char[] persistentLoginPwd = (char[]) persistentInfo.getCredentials();
                 byte[] persistentLoginPwdSalt = persistentInfo.getCredentialsSalt().getBytes();
 
-                if (!(persistentUsername.equalsIgnoreCase(inputUsername) && new String(persistentLoginPwd).equals(encodeLoginPwd(inputLoginPwd,
+                if (!(persistentUsername.equalsIgnoreCase(inputUsername) && new String(persistentLoginPwd).equals(secretLoginPwd(inputLoginPwd,
                         persistentLoginPwdSalt)))) {
                     return false;
                 }
@@ -117,10 +125,6 @@ public class CustomAuthorizingRealm extends AuthorizingRealm {
             }
         };
         setCredentialsMatcher(credentialsMatcher);
-    }
-
-    public static String encodeLoginPwd(char[] loginPwd, byte[] loginPwdSalt) {
-        return new Sha512Hash(loginPwd, loginPwdSalt, 512).toBase64();
     }
 
     @Override

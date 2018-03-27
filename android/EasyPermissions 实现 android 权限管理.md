@@ -1,5 +1,5 @@
 
-## <center>通过 EasyPermissions 实现 Android 权限管理</center>
+## 通过 EasyPermissions 实现 Android 权限管理
 
 #### 1. 添加 EasyPermissions 工具包引用
 

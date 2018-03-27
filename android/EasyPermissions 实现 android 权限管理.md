@@ -1,7 +1,7 @@
 
 ## 通过 EasyPermissions 实现 Android 权限管理
 
-#### 添加 EasyPermissions 工具包引用
+#### 1. 添加 EasyPermissions 工具包引用
 
 ```
 dependencies {
@@ -9,7 +9,7 @@ dependencies {
 }
 ```
 
-#### 以更新 app 功能为例，定义请求码和需求权限
+#### 2. 以更新 app 功能为例，定义请求码和需求权限
 
 ```java
 private static final int PERMISSION_UPGRADEAPP_REQUESTCODE = 1;
@@ -21,7 +21,7 @@ private static final String[] PERMISSION_UPGRADEAPP_USES = {
 };
 ```
 
-#### 定义权限请求回调，传递权限申请给 EasyPermissions 工具包
+#### 3. 定义权限请求回调，传递权限申请给 EasyPermissions 工具包
 
 ```java
 @Override
@@ -32,7 +32,7 @@ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permis
 }
 ```
 
-#### 定义 EasyPermissions 工具包回调，前提是需要实现 EasyPermissions 提供的 EasyPermissions.PermissionCallbacks 接口
+#### 4. 定义 EasyPermissions 工具包回调，前提是需要实现 EasyPermissions 提供的 EasyPermissions.PermissionCallbacks 接口
 
 ```java
 @Override
@@ -54,7 +54,7 @@ public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
 }
 ```
 
-#### 定义授权后业务逻辑部分，@AfterPermissionGranted 的参数对应请求码，用户全部接受后才能进入这里
+#### 5. 定义授权后业务逻辑部分，@AfterPermissionGranted 的参数对应请求码，用户全部接受后才能进入这里
 
 ```java
 @AfterPermissionGranted(PERMISSION_UPGRADEAPP_REQUESTCODE)
@@ -63,7 +63,7 @@ private void permissionUpgradeApp() {
 }
 ```
 
-#### 判断并调用业务逻辑，已有权限直接调用业务代码。否则，申请权限
+#### 6. 判断并调用业务逻辑，已有权限直接调用业务代码。否则，申请权限
 
 ```java
 if (EasyPermissions.hasPermissions(this, PERMISSION_UPGRADEAPP_USES)) {

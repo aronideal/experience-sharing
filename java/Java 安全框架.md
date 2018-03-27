@@ -1,20 +1,20 @@
 
 # 使用 Apache Shiro Java 安全框架实现
 
-## Apache Shiro 能做的事情
+## 1. Apache Shiro 能做的事情
 
 * 验证用户身份信息
 * 检查用户是否被分配了安全角色
 * 检查用户是否可做某事
 * 验证身份、访问控制、会话期间对事件作出反馈
 
-## Apache Shiro 特性
+## 2. Apache Shiro 特性
 
 认证（主体访问）、授权（访问控制）、会话管理和密码学
 
 ![](http://shiro.apache.org/assets/images/ShiroFeatures.png)
 
-## Apache Shiro 集成（配置方式）
+## 3. Apache Shiro 集成（配置方式）
 
 #### 增加 Apache Shiro 配置文件 src/main/resources/shiro.ini
 
@@ -89,7 +89,7 @@ currentUser.logout();
 logger.info("用户 {} 注销", username);
 ```
 
-## Apache Shiro 集成（非配置方式）
+## 4. Apache Shiro 集成（非配置方式）
 
 #### 定义密码加密策略（登录、注册公用）
 
@@ -159,3 +159,69 @@ public class CustomAuthorizingRealm extends AuthorizingRealm {
 DefaultSecurityManager securityManager = new DefaultSecurityManager();
 ```
 
+## Web 方式集成（基于 Spring 框架）
+
+web.xml：
+
+```xml
+<filter>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <init-param>
+        <param-name>targetFilterLifecycle</param-name>
+        <param-value>true</param-value>
+    </init-param>
+</filter>
+
+<filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+
+applicationContext.xml:
+
+```xml
+<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+    <property name="securityManager" ref="securityManager"/>
+    <!-- override these for application-specific URLs if you like:
+    <property name="loginUrl" value="/login.jsp"/>
+    <property name="successUrl" value="/home.jsp"/>
+    <property name="unauthorizedUrl" value="/unauthorized.jsp"/> -->
+    <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean  -->
+    <!-- defined will be automatically acquired and available via its beanName in chain        -->
+    <!-- definitions, but you can perform instance overrides or name aliases here if you like: -->
+    <!-- <property name="filters">
+        <util:map>
+            <entry key="anAlias" value-ref="someFilter"/>
+        </util:map>
+    </property> -->
+    <property name="filterChainDefinitions">
+        <value>
+            # some example chain definitions:
+            /admin/** = authc, roles[admin]
+            /docs/** = authc, perms[document:read]
+            /** = authc
+            # more URL-to-FilterChain definitions here
+        </value>
+    </property>
+</bean>
+
+<!-- Define any javax.servlet.Filter beans you want anywhere in this application context.   -->
+<!-- They will automatically be acquired by the 'shiroFilter' bean above and made available -->
+<!-- to the 'filterChainDefinitions' property.  Or you can manually/explicitly add them     -->
+<!-- to the shiroFilter's 'filters' Map if desired. See its JavaDoc for more details.       -->
+<bean id="someFilter" class="..."/>
+<bean id="anotherFilter" class="..."> ... </bean>
+...
+
+<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+    <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
+    <property name="realm" ref="customAuthorizingRealm"/>
+    <!-- By default the servlet container sessions will be used.  Uncomment this line
+         to use shiro's native sessions (see the JavaDoc for more): -->
+    <!-- <property name="sessionMode" value="native"/> -->
+</bean>
+
+<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+```

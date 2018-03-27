@@ -1,5 +1,5 @@
 
-## 通过 EasyPermissions 实现Android权限管理
+## 通过 EasyPermissions 实现 Android 权限管理
 
 #### 添加 EasyPermissions 工具包引用
 
@@ -9,7 +9,7 @@ dependencies {
 }
 ```
 
-#### 以更新app功能为例，定义请求码和需求权限
+#### 以更新 app 功能为例，定义请求码和需求权限
 
 ```java
 private static final int PERMISSION_UPGRADEAPP_REQUESTCODE = 1;

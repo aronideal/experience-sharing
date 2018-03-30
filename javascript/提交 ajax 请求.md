@@ -6,7 +6,9 @@
 服务端
 
 ```
-contentType: application/json; charset=UTF-8
+请求方法：  POST
+
+接收：      contentType="application/json; charset=UTF-8"
 ```
 
 客户端

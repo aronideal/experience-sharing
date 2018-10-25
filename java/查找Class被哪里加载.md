@@ -1,6 +1,6 @@
 
 ```java
-ProtectionDomain pd = OSSApi.class.getProtectionDomain();
+ProtectionDomain pd = XXXX.class.getProtectionDomain();
 CodeSource cs = pd.getCodeSource();
 System.out.println(cs.getLocation());
 ```
